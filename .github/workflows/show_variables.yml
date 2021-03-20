@@ -4,6 +4,5 @@ jobs:
   start-mysql:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@2
       - run: sudo systemctl start mysql.service
       - run: mysql -u root -proot -e "SHOW VARIABLES LIKE 'lower_case_table_names';"
