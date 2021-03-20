@@ -17,7 +17,7 @@ jobs:
       - run: sudo mkdir /var/lib/mysql
       - run: sudo chown -R mysql:mysql /var/lib/mysql
       - run: sudo chmod 750 /var/lib/mysql
-      - run: sudo mysqld --defaults-file=/etc/mysql/my.cnf --initialize lower_case_table_names=1 --user=mysql 
+      - run: sudo mysqld --defaults-file=/etc/mysql/my.cnf --initialize --lower_case_table_names=1 --user=mysql 
       - run: sudo systemctl start mysql.service
       # - run: sudo journalctl -xe
       #   if: always()
