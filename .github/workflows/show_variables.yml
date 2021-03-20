@@ -7,10 +7,11 @@ jobs:
       - run: sudo cat /etc/mysql/my.cnf
       - run: sudo ls -la /etc/mysql/mysql.conf.d/
       - run: sudo cat /etc/mysql/mysql.conf.d/mysqld.cnf
-      # - run: echo `lower_case_table_names = 1` | sudo tee -a /etc/mysql/mysql.conf.d/mysqld.cnf
-      # - run: sudo sh -c "echo `lower_case_table_names = 1` >> /etc/mysql/mysql.conf.d/mysqld.cnf"
-      - run: echo `[mysqld]` | sudo tee -a /etc/mysql/mysql.conf.d/zzz.cnf
-      - run: echo `lower_case_table_names = 1` | sudo tee -a /etc/mysql/mysql.conf.d/zzz.cnf
-      - run: sudo cat /etc/mysql/mysql.conf.d/zzz.cnf
+      - run: echo 'lower_case_table_names = 1' | sudo tee -a /etc/mysql/mysql.conf.d/mysqld.cnf
+      # - run: sudo sh -c "echo 'lower_case_table_names = 1' >> /etc/mysql/mysql.conf.d/mysqld.cnf"
+      # - run: echo '[mysqld]' | sudo tee -a /etc/mysql/mysql.conf.d/zzz.cnf
+      # - run: echo 'lower_case_table_names = 1' | sudo tee -a /etc/mysql/mysql.conf.d/zzz.cnf
+      - run: sudo cat /etc/mysql/mysql.conf.d/mysqld.cnf
+      # - run: sudo cat /etc/mysql/mysql.conf.d/zzz.cnf
       - run: sudo systemctl start mysql.service
       - run: mysql -u root -proot -e "SHOW VARIABLES LIKE 'lower_case_table_names';"
