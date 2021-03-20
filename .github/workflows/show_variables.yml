@@ -13,6 +13,7 @@ jobs:
       - run: echo 'lower_case_table_names = 1' | sudo tee -a /etc/mysql/mysql.conf.d/zzz.cnf
       # - run: sudo cat /etc/mysql/mysql.conf.d/mysqld.cnf
       - run: sudo cat /etc/mysql/mysql.conf.d/zzz.cnf
+      - run: sudo mysqld --initialize --user=root
       - run: sudo systemctl start mysql.service
       # - run: sudo journalctl -xe
       #   if: always()
