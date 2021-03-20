@@ -17,7 +17,7 @@ jobs:
       - run: sudo mkdir /var/lib/mysql
       - run: sudo chown -R mysql:mysql /var/lib/mysql
       - run: sudo chmod 750 /var/lib/mysql
-      - run: sudo mysqld --defaults-file=/etc/mysql/my.cnf --initialize --lower_case_table_names=1 --user=mysql 
+      - run: sudo mysqld --defaults-file=/etc/mysql/my.cnf --initialize-insecure --lower_case_table_names=1
       - run: sudo systemctl start mysql.service
       # - run: sudo journalctl -xe
       #   if: always()
@@ -25,4 +25,4 @@ jobs:
       #   if: always()
       - run: sudo cat /var/log/mysql/error.log
         if: always()
-      - run: mysql -u root -proot -e "SHOW VARIABLES LIKE 'lower_case_table_names';"
+      - run: mysql -u root -e "SHOW VARIABLES LIKE 'lower_case_table_names';"
