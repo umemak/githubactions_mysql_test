@@ -14,4 +14,5 @@ jobs:
       - run: sudo cat /etc/mysql/mysql.conf.d/mysqld.cnf
       # - run: sudo cat /etc/mysql/mysql.conf.d/zzz.cnf
       - run: sudo systemctl start mysql.service
+      - run: sudo systemctl status mysql.service
       - run: mysql -u root -proot -e "SHOW VARIABLES LIKE 'lower_case_table_names';"
